@@ -74,12 +74,14 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
             <div className="group lg:col-span-6">
               <EditorialImage
-                src="/src/assets/images/hero_kitchen_backsplash_1795691086121.jpg"
-                alt="Editorial design inspiration of a residential kitchen with handmade ceramic tile backsplash, white oak cabinetry, and natural stone counters."
-                aspectClass="aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[340px]"
+                src="/src/assets/images/midwest_backsplash_showcase_1795693566752.jpg"
+                alt="Midwest craftsman kitchen winter backsplash inspiration featuring vertical-stacked sage-cream ceramic tile, white oak cabinetry, and oak trees outside."
+                aspectClass="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[340px]"
+                sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 92vw, 620px"
+                objectPositionClass="object-center"
                 className="rounded-xl border border-[#E2DDD4]"
                 priority
-                label="Editorial Inspiration · Ceramic Tile Backsplash & Natural Stone"
+                label="Editorial Inspiration · Winter Kitchen Backsplash & Natural Oak"
               />
             </div>
           </div>
@@ -139,7 +141,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
       {/* 2. Seasonal Strategy Spotlight (Default: Winter Kitchens & Interiors) */}
       <section className="bg-[#1A1B19] text-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10 lg:py-20">
           <div className="flex flex-col gap-6 border-b border-[#2E302C] pb-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-wider text-[#D9B68C] uppercase">
@@ -194,6 +196,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   src={featuredServices[0].image}
                   alt={featuredServices[0].imageAlt}
                   aspectClass="aspect-[16/10]"
+                  sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 92vw, 580px"
                   label="Editorial Design Inspiration"
                 />
                 <div className="flex flex-1 flex-col justify-between p-6">
@@ -264,7 +267,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
       {/* 3. Full Five-Category Service Architecture */}
       <section className="border-b border-[#E2DDD4] bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10 lg:py-24">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
@@ -301,7 +304,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
                       <EditorialImage
                         src={category.heroImage}
                         alt={category.heroAlt}
-                        aspectClass="aspect-[4/3]"
+                        aspectClass="aspect-[16/10] md:aspect-[4/3]"
+                        sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 92vw, 500px"
                         label="Editorial Inspiration"
                       />
                     </a>
@@ -363,8 +367,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
       {/* 4. Craftsmanship Pillars & Process Proof */}
       <section className="border-b border-[#E2DDD4] bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24">
-          <div className="grid gap-12 lg:grid-cols-12">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10 lg:py-24">
+          <div className="grid gap-10 lg:gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
                 How We Work
@@ -380,10 +384,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
               <div className="mt-8 overflow-hidden rounded-xl border border-[#E2DDD4]">
                 <EditorialImage
-                  src="/src/assets/images/tile_stonework_craft_1795691089671.jpg"
-                  alt="Close-up architectural study showing split-face limestone masonry meeting precision herringbone tile."
-                  aspectClass="aspect-[4/3]"
-                  label="Material Craft Study · Limestone & Herringbone Tile"
+                  src="/src/assets/images/midwest_stonework_detail_1795693265019.jpg"
+                  alt="Close-up architectural study showing split-face Indiana limestone masonry meeting a honed sill and herringbone ceramic floor tile."
+                  aspectClass="aspect-[16/10] sm:aspect-[4/3]"
+                  sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 92vw, 500px"
+                  label="Material Craft Study · Indiana Limestone & Herringbone Tile"
                 />
               </div>
             </div>
@@ -443,7 +448,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
       {/* 5. Visual Inspiration & Portfolio Framework Preview */}
       <section className="border-b border-[#E2DDD4] bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10 lg:py-20">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
@@ -461,15 +466,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <a
               href="/projects"
               onClick={(e) => handleNav(e, "/projects")}
-              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-md border border-[#D4CEC3] bg-white px-4 py-2 text-xs font-semibold text-[#1A1B19] hover:border-[#1A1B19] whitespace-nowrap shrink-0"
+              className="inline-flex min-h-[42px] w-full sm:w-auto items-center justify-center gap-1.5 rounded-md border border-[#D4CEC3] bg-white px-4 py-2 text-xs font-semibold text-[#1A1B19] hover:border-[#1A1B19] whitespace-nowrap shrink-0"
             >
               Open Full Gallery
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[editorialGallery[0], editorialGallery[2], editorialGallery[5]].map((item) => (
+          <div className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-3">
+            {[editorialGallery[2], editorialGallery[7], editorialGallery[15]].map((item) => (
               <a
                 key={item.id}
                 href="/projects"
@@ -479,7 +484,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 <EditorialImage
                   src={item.image}
                   alt={item.alt}
-                  aspectClass="aspect-[4/3]"
+                  aspectClass="aspect-[16/10] md:aspect-[4/3]"
+                  sizes="(max-width: 767px) calc(100vw - 32px), 400px"
                   label={item.status}
                 />
                 <div className="p-5">
@@ -498,7 +504,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
       {/* 6. Direct Lead Capture Section */}
       <section className="bg-[#EFECE6]">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">

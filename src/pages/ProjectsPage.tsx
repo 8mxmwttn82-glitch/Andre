@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CtaBand } from "../components/CtaBand";
-import { EditorialImage } from "../components/EditorialImage";
+import { EditorialImage, getResponsiveWebpSrcSet } from "../components/EditorialImage";
 import { editorialGallery, type GalleryItem } from "../data/site";
 
 interface ProjectsPageProps {
@@ -157,7 +157,7 @@ export function ProjectsPage({ onNavigate }: ProjectsPageProps) {
   return (
     <div>
       <section className="border-b border-[#E2DDD4] bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-12 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-10 sm:py-12 lg:px-10 lg:py-16">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
@@ -353,7 +353,7 @@ export function ProjectsPage({ onNavigate }: ProjectsPageProps) {
 
       {/* Gallery Grid */}
       <section className="bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-14 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-10 sm:py-14 lg:px-10 lg:py-16">
           {visibleItems.length === 0 ? (
             <div className="rounded-xl border border-[#E2DDD4] bg-white p-12 text-center">
               <p className="text-sm text-[#57534C]">
@@ -362,7 +362,7 @@ export function ProjectsPage({ onNavigate }: ProjectsPageProps) {
               </p>
             </div>
           ) : (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {visibleItems.map((item, idx) => {
                 const isCustom = item.status === "Completed Project";
                 return (
@@ -378,7 +378,8 @@ export function ProjectsPage({ onNavigate }: ProjectsPageProps) {
                       <EditorialImage
                         src={item.image}
                         alt={item.alt}
-                        aspectClass="aspect-[4/3]"
+                        aspectClass="aspect-[16/10] sm:aspect-[4/3]"
+                        sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 48vw, 400px"
                         label={
                           isCustom && item.location
                             ? `${item.status} · ${item.location}`
@@ -452,7 +453,7 @@ export function ProjectsPage({ onNavigate }: ProjectsPageProps) {
             </button>
           </div>
 
-          <div className="relative mx-auto flex max-h-[72vh] w-full max-w-5xl items-center justify-center">
+          <div className="relative mx-auto flex max-h-[62vh] sm:max-h-[72vh] w-full max-w-5xl items-center justify-center">
             <button
               type="button"
               onClick={() =>
@@ -461,30 +462,63 @@ export function ProjectsPage({ onNavigate }: ProjectsPageProps) {
                 )
               }
               aria-label="Previous image"
-              className="absolute left-2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/85"
+              className="hidden sm:inline-flex absolute left-2 z-10 h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/75 text-white hover:bg-black/90"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <img
-              src={activeLightboxItem.image}
-              alt={activeLightboxItem.alt}
-              className="max-h-[70vh] w-auto rounded-lg object-contain"
-            />
+            <picture className="flex max-h-[58vh] sm:max-h-[70vh] w-full sm:w-auto items-center justify-center">
+              {getResponsiveWebpSrcSet(activeLightboxItem.image) && (
+                <source
+                  type="image/webp"
+                  srcSet={getResponsiveWebpSrcSet(activeLightboxItem.image) || undefined}
+                  sizes="(max-width: 639px) calc(100vw - 32px), 1000px"
+                />
+              )}
+              <img
+                src={activeLightboxItem.image}
+                alt={activeLightboxItem.alt}
+                decoding="async"
+                referrerPolicy="no-referrer"
+                className="max-h-[58vh] sm:max-h-[70vh] w-full sm:w-auto rounded-lg object-contain"
+              />
+            </picture>
             <button
               type="button"
               onClick={() => setLightboxIndex((lightboxIndex + 1) % visibleItems.length)}
               aria-label="Next image"
-              className="absolute right-2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/85"
+              className="hidden sm:inline-flex absolute right-2 z-10 h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/75 text-white hover:bg-black/90"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
 
-          <div className="mx-auto max-w-2xl text-center">
-            <h3 className="font-display text-2xl font-semibold text-white">
+          <div className="mx-auto w-full max-w-2xl text-center">
+            <h3 className="font-display text-xl sm:text-2xl font-semibold text-white">
               {activeLightboxItem.title}
             </h3>
             <p className="mt-1 text-xs text-[#C9C3B8]">{activeLightboxItem.caption}</p>
+            <div className="mt-4 flex items-center justify-center gap-3 sm:hidden">
+              <button
+                type="button"
+                onClick={() =>
+                  setLightboxIndex(
+                    (lightboxIndex - 1 + visibleItems.length) % visibleItems.length,
+                  )
+                }
+                className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-md border border-[#343631] bg-[#1A1B19] px-4 py-2 text-xs font-semibold text-white"
+              >
+                <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+                Previous
+              </button>
+              <button
+                type="button"
+                onClick={() => setLightboxIndex((lightboxIndex + 1) % visibleItems.length)}
+                className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-md border border-[#343631] bg-[#1A1B19] px-4 py-2 text-xs font-semibold text-white"
+              >
+                Next
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </div>
       )}

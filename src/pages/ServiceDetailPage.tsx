@@ -47,7 +47,7 @@ export function ServiceDetailPage({ slug, onNavigate }: ServiceDetailPageProps) 
   return (
     <div>
       <section className="border-b border-[#E2DDD4] bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-12 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-8 sm:py-12 lg:px-10 lg:py-16">
           <nav aria-label="Breadcrumb" className="text-xs text-[#57534C]">
             <a
               href="/"
@@ -72,34 +72,34 @@ export function ServiceDetailPage({ slug, onNavigate }: ServiceDetailPageProps) 
             <span className="font-medium text-[#1A1B19]">{service.name}</span>
           </nav>
 
-          <div className="mt-6 grid items-stretch gap-10 lg:grid-cols-12">
+          <div className="mt-6 grid items-stretch gap-8 lg:gap-10 lg:grid-cols-12">
             <div className="flex flex-col justify-between lg:col-span-6">
               <div>
                 <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
                   {category.name} · {site.area}
                 </p>
-                <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-[#1A1B19] sm:text-5xl">
+                <h1 className="mt-3 font-display text-[34px] sm:text-5xl font-semibold leading-[1.08] tracking-tight text-[#1A1B19]">
                   {service.h1}
                 </h1>
-                <p className="mt-5 text-base leading-relaxed text-[#57534C]">{service.summary}</p>
+                <p className="mt-4 sm:mt-5 text-[15px] sm:text-base leading-relaxed text-[#57534C]">{service.summary}</p>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
                 <a
                   href={`/contact?type=${encodeURIComponent(service.slug)}`}
                   onClick={(e) =>
                     handleNav(e, `/contact?type=${encodeURIComponent(service.slug)}`)
                   }
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-[#1F3A2E] px-6 py-3 text-sm font-semibold text-[#F8F6F2] transition-colors hover:bg-[#162B22] whitespace-nowrap shrink-0"
+                  className="inline-flex min-h-[46px] w-full sm:w-auto items-center justify-center rounded-md bg-[#1F3A2E] px-6 py-3 text-sm font-semibold text-[#F8F6F2] transition-colors hover:bg-[#162B22] whitespace-nowrap shrink-0"
                 >
                   Request an Estimate
                 </a>
                 <a
                   href={`tel:${site.phoneTel}`}
-                  className="inline-flex min-h-[44px] items-center gap-2 rounded-md border border-[#D4CEC3] bg-white px-5 py-3 text-sm font-semibold text-[#1A1B19] tabular-nums hover:border-[#1A1B19] whitespace-nowrap shrink-0"
+                  className="inline-flex min-h-[46px] w-full sm:w-auto items-center justify-center gap-2 rounded-md border border-[#D4CEC3] bg-white px-5 py-3 text-sm font-semibold text-[#1A1B19] tabular-nums hover:border-[#1A1B19] whitespace-nowrap shrink-0"
                 >
                   <Phone className="h-4 w-4 text-[#1F3A2E]" aria-hidden="true" />
-                  {site.phoneDisplay}
+                  Call {site.phoneDisplay}
                 </a>
               </div>
             </div>
@@ -108,7 +108,8 @@ export function ServiceDetailPage({ slug, onNavigate }: ServiceDetailPageProps) 
               <EditorialImage
                 src={service.image}
                 alt={service.imageAlt}
-                aspectClass="aspect-[4/3] lg:h-full"
+                aspectClass="aspect-[16/10] sm:aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[320px]"
+                sizes="(max-width: 1023px) 100vw, 600px"
                 className="rounded-xl border border-[#E2DDD4]"
                 priority
                 label="Editorial Design Inspiration"
@@ -119,7 +120,7 @@ export function ServiceDetailPage({ slug, onNavigate }: ServiceDetailPageProps) 
       </section>
 
       <section className="border-b border-[#E2DDD4] bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="space-y-8 lg:col-span-7">
               <div>

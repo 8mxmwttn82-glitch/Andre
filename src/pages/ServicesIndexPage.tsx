@@ -16,7 +16,7 @@ export function ServicesIndexPage({ onNavigate }: ServicesIndexPageProps) {
   return (
     <div>
       <section className="border-b border-[#E2DDD4] bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-12 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-10 sm:py-12 lg:px-10 lg:py-16">
           <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
             Full Service Directory
           </p>
@@ -29,12 +29,12 @@ export function ServicesIndexPage({ onNavigate }: ServicesIndexPageProps) {
             landscapes.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-2.5 sm:gap-3">
             {categories.map((cat) => (
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
-                className="rounded-md border border-[#D4CEC3] bg-white px-4 py-2 text-xs font-semibold text-[#1A1B19] transition-colors hover:border-[#1F3A2E] hover:text-[#1F3A2E]"
+                className="inline-flex min-h-[40px] items-center rounded-md border border-[#D4CEC3] bg-white px-4 py-2 text-xs font-semibold text-[#1A1B19] transition-colors hover:border-[#1F3A2E] hover:text-[#1F3A2E]"
               >
                 {cat.name}
               </a>
@@ -44,11 +44,11 @@ export function ServicesIndexPage({ onNavigate }: ServicesIndexPageProps) {
       </section>
 
       <section className="bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] divide-y divide-[#E2DDD4] px-6 lg:px-10">
+        <div className="mx-auto max-w-[1280px] divide-y divide-[#E2DDD4] px-4 sm:px-6 lg:px-10">
           {categories.map((category, idx) => {
             const items = services.filter((s) => s.category === category.id);
             return (
-              <div key={category.id} id={category.id} className="py-14 scroll-mt-20">
+              <div key={category.id} id={category.id} className="py-12 sm:py-14 scroll-mt-20">
                 <div className="grid gap-8 lg:grid-cols-12">
                   <div className="lg:col-span-4">
                     <span className="text-xs font-semibold text-[#9A6B3B] tabular-nums">
@@ -70,7 +70,8 @@ export function ServicesIndexPage({ onNavigate }: ServicesIndexPageProps) {
                       <EditorialImage
                         src={category.heroImage}
                         alt={category.heroAlt}
-                        aspectClass="aspect-[4/3]"
+                        aspectClass="aspect-[16/10] sm:aspect-[4/3]"
+                        sizes="(max-width: 1023px) 100vw, 400px"
                         label="Editorial Inspiration"
                       />
                     </div>

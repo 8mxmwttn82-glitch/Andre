@@ -9,14 +9,14 @@ export function ProcessPage({ onNavigate }: ProcessPageProps) {
   return (
     <div>
       <section className="border-b border-[#E2DDD4] bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-12 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-10 sm:py-12 lg:px-10 lg:py-16">
           <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
             How Projects Proceed
           </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight text-[#1A1B19] sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-[34px] sm:text-5xl font-semibold tracking-tight text-[#1A1B19]">
             Walk the space first, agree on a clear scope, then build it cleanly.
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#57534C]">
+          <p className="mt-4 max-w-2xl text-[15px] sm:text-base leading-relaxed text-[#57534C]">
             Whether the job is a three-day winter kitchen backsplash, a bathroom tile upgrade, or a
             multi-week outdoor stone terrace in {site.area}, every project follows the same five
             steps.
@@ -25,7 +25,7 @@ export function ProcessPage({ onNavigate }: ProcessPageProps) {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1000px] divide-y divide-[#E2DDD4] px-6 py-12 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-[1000px] divide-y divide-[#E2DDD4] px-4 sm:px-6 py-8 sm:py-12 lg:px-10 lg:py-16">
           {processSteps.map((step) => (
             <div key={step.number} className="grid gap-4 py-8 sm:grid-cols-12 sm:items-baseline">
               <div className="sm:col-span-3">

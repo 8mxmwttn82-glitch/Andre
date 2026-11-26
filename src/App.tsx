@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { serviceBySlug, site } from "./data/site";
+import { generatePageJsonLd } from "./data/structuredData";
 import { AboutPage } from "./pages/AboutPage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { ContactPage } from "./pages/ContactPage";
@@ -143,9 +144,30 @@ export default function App() {
   useEffect(() => {
     const meta = getRouteMeta(pathname);
     document.title = meta.title;
+
     const descTag = document.querySelector('meta[name="description"]');
-    if (descTag) {
-      descTag.setAttribute("content", meta.description);
+    if (descTag) descTag.setAttribute("content", meta.description);
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute("content", meta.title);
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", meta.description);
+
+    const canonicalHref = `${window.location.origin}${pathname === "/" ? "/" : pathname}`;
+    let canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (!canonicalTag) {
+      canonicalTag = document.createElement("link");
+      canonicalTag.setAttribute("rel", "canonical");
+      document.head.appendChild(canonicalTag);
+    }
+    canonicalTag.setAttribute("href", canonicalHref);
+
+    const schemaScript = document.getElementById("structured-data");
+    if (schemaScript) {
+      schemaScript.textContent = JSON.stringify(
+        generatePageJsonLd(pathname, window.location.origin),
+      );
     }
   }, [pathname]);
 

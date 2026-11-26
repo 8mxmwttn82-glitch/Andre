@@ -12,7 +12,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
   return (
     <footer className="border-t border-[#2E302C] bg-[#1A1B19] text-[#EAE6DF]">
-      <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10">
+      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <a

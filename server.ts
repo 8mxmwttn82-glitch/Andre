@@ -447,6 +447,11 @@ async function startServer() {
     res.type("application/xml").send(xml);
   });
 
+  app.use("/src/assets/images", (_req: Request, res: Response, next) => {
+    res.setHeader("Cache-Control", "public, max-age=604800, immutable");
+    next();
+  });
+
   if (!isProduction) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -455,7 +460,7 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distDir = path.resolve(__dirname, "dist");
-    app.use(express.static(distDir, { maxAge: "7d" }));
+    app.use(express.static(distDir, { maxAge: "30d" }));
     app.get("*", (_req: Request, res: Response) => {
       res.sendFile(path.join(distDir, "index.html"));
     });

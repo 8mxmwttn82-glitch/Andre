@@ -15,29 +15,30 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
   return (
     <div>
       <section className="border-b border-[#E2DDD4] bg-[#F8F6F2]">
-        <div className="mx-auto max-w-[1280px] px-6 py-12 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-10 sm:py-12 lg:px-10 lg:py-16">
           <p className="text-xs font-semibold tracking-wider text-[#9A6B3B] uppercase">
             About the Practice
           </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight text-[#1A1B19] sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-[34px] sm:text-5xl font-semibold tracking-tight text-[#1A1B19]">
             {site.person} — Residential Craftsmanship Across {site.area}.
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#57534C]">
+          <p className="mt-4 max-w-2xl text-[15px] sm:text-base leading-relaxed text-[#57534C]">
             {site.supportingStatement}
           </p>
         </div>
       </section>
 
       <section className="border-b border-[#E2DDD4] bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 sm:py-16 lg:px-10 lg:py-20">
+          <div className="grid gap-10 lg:gap-12 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-5">
               <div className="overflow-hidden rounded-xl border border-[#E2DDD4]">
                 <EditorialImage
-                  src="/src/assets/images/interior_improvement_space_1795691088141.jpg"
-                  alt="Editorial inspiration of refined residential interior masonry, millwork, and oak flooring."
-                  aspectClass="aspect-[4/3]"
-                  label="Editorial Design Inspiration · Residential Interior Craft"
+                  src="/src/assets/images/midwest_living_stone_hearth_1795693265433.jpg"
+                  alt="Editorial inspiration of a Midwest living room with stacked stone fireplace surround, oak timber mantel, and built-ins."
+                  aspectClass="aspect-[16/10] sm:aspect-[4/3]"
+                  sizes="(max-width: 1023px) 100vw, 500px"
+                  label="Editorial Design Inspiration · Midwest Interior Stone & Millwork"
                 />
               </div>
             </div>
