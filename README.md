@@ -1,11 +1,28 @@
-<div align="center">
+# Andre Preer — Residential Craftsmanship Website
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Website for **Andre Preer** (`Andre M. Preer II`), serving Springfield and Central Illinois with kitchen backsplashes, tile flooring, bathroom & shower tile (tile and stone surfaces only — no plumbing), custom natural stonework, interior finish upgrades, and outdoor patios/landscaping.
 
-  <h1>Built with AI Studio</h2>
+## Local Development & Build
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+```bash
+npm install
+npm run dev      # Starts Express + Vite on http://localhost:3000
+npm run lint     # TypeScript check
+npm run build    # Production Vite build into dist/
+npm start        # Runs production server (node server.ts)
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Pushing to a New GitHub Repository & Publishing Live
 
-</div>
+1. Create a new empty repository on GitHub (separate from any Lil King repositories).
+2. Push this codebase from the project root:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial Andre Preer website transformation"
+   git branch -M main
+   git remote add origin https://github.com/<your-org-or-user>/<new-repo-name>.git
+   git push -u origin main
+   ```
+3. Publish live to a temporary hosting URL (for example on Cloud Run, Render, Railway, or a connected Cloudflare setup) with `npm run build` and `npm start` on port `3000`.
+4. Do not connect any Lil King domain or subdomain. Wait for explicit approval before registering `andrepreer.com`.
